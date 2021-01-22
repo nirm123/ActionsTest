@@ -1,13 +1,11 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Test
+name: Generate Secret
 
 on:
   push:
     branches:
       - master
 jobs:
-  testPipeline:
+  secretGenerationPipeline:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,12 +14,12 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: test running python script
-        run: python test.py
+      - name: run python script to generate secret
+        run: python secret.py
 
-      - name: Commit changes
+      - name: commit changes
         run: |
-          git config --global user.name 'Nirmal'
-          git config --global user.email 'nirmalp2@illinois.edu'
+          git config --global user.name 'Secret Generator'
+          git config --global user.email 'secret@illinois.edu'
           git commit -am "Update secret"
           git push
