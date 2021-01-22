@@ -2,8 +2,9 @@ name: Generate Secret
 
 on:
   push:
-    branches:
-      - master
+    paths:
+      - 'netid.txt'
+
 jobs:
   secretGenerationPipeline:
     runs-on: ubuntu-latest
