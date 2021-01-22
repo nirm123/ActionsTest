@@ -3,5 +3,10 @@ import hashlib
 with open('netid.txt') as f:
     netid = f.readline()
 
-hash_object = hashlib.sha256(b'Hello World')
-print(hash_object.hexdigest()[:5])
+secret = hashlib.sha256(b'Hello World').hexdigest()[:5]
+
+with open('secret.txt', 'w') as f:
+    if len(netid) != 0:
+        f.write(secret)
+    else:
+        f.write('netid.txt is empty')

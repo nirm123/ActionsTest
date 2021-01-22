@@ -18,3 +18,10 @@ jobs:
 
       - name: test running python script
         run: python test.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'Nirmal'
+          git config --global user.email 'nirmalp2@illinois.edu'
+          git commit -am "Update secret"
+          git push
