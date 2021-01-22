@@ -7,7 +7,7 @@ with open('netid.txt') as f:
 secret = hashlib.sha256(b'Hello World').hexdigest()[:5]
 
 with open('secret.txt', 'w') as f:
-    if len(netid) != 0:
+    if len(netid) != 0 and not netid.isspace():
         f.write(secret)
     else:
         f.write('netid.txt is empty')
