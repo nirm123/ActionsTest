@@ -22,5 +22,4 @@ jobs:
         run: |
           git config --global user.name 'Secret Generator'
           git config --global user.email 'secret@illinois.edu'
-          git commit -am "Update secret"
-          git push
+          git diff-index --quiet HEAD || (git commit -am "Update secret" && git push)
